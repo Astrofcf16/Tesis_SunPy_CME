@@ -1,0 +1,40 @@
+from sunpy.net import Fido, attrs as a
+from sunpy.time import parse_time
+import os
+import astropy.units as u
+
+# Definir intervalo de tiempo del evento 1
+inicio = parse_time("1997-09-28 01:49")
+fin = parse_time("1997-09-28 11:55")
+
+carpeta_c2 = "/home/steve/lasco_evento1/c2"
+carpeta_c3 = "/home/steve/lasco_evento1/c3"
+
+# Crear carpetas si no existen
+os.makedirs(carpeta_c2, exist_ok=True)
+os.makedirs(carpeta_c3, exist_ok=True)
+
+# Buscar y descargar imágenes LASCO C2
+print("🔽 Buscando imágenes LASCO C2...")
+result_c2 = Fido.search(a.Time(inicio, fin),
+                        a.Instrument.lasco,
+                        a.Detector.c2,
+                        a.Sample(20 * u.minute))  # cada 20 min
+
+print(f"🔎 Se encontraron {len(result_c2[0])} imágenes C2")
+files_c2 = Fido.fetch(result_c2, path=os.path.join(carpeta_c2, "{file}"
+))
+
+# Buscar y descargar imágenes LASCO C3
+print("\n🔽 Buscando imágenes LASCO C3...")
+result_c3 = Fido.search(a.Time(inicio, fin),
+                        a.Instrument.lasco,
+                        a.Detector.c3,
+                        a.Sample(20 * u.minute))  # cada 20 min
+
+print(f"🔎 Se encontraron {len(result_c3[0])} imágenes C3")
+files_c3 = Fido.fetch(result_c3, path=os.path.join(carpeta_c3, "{file}"
+))
+
+
+
