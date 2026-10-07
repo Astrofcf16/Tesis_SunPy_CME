@@ -1,0 +1,11 @@
+serie,modelo,parametro,valor,error_reescalado,unidad,chi2_red,BIC
+manual,lineal,h0,2433994.0272,131220.8136,km,27.664,337.2
+manual,lineal,v,1942.2359,49.7271,km/s,27.664,337.2
+manual,cuadratico,h0,2192058.2240,61425.5455,km,4.546,57.9
+manual,cuadratico,v0,2508.6900,74.6951,km/s,4.546,57.9
+manual,cuadratico,a,-152.0619,19.3076,m/s2,4.546,57.9
+automatico,lineal,h0,2228229.3485,86949.7056,km,2.473,16.3
+automatico,lineal,v,2207.6099,64.6496,km/s,2.473,16.3
+automatico,cuadratico,h0,2105727.2172,66176.4369,km,0.254,6.9
+automatico,cuadratico,v0,2615.7554,127.9351,km/s,0.254,6.9
+automatico,cuadratico,a,-238.9339,70.9229,m/s2,0.254,6.9
